@@ -55,13 +55,14 @@
         computed: {
             id() {
                 const pattern = /(?:youtu\.be\/|youtube\.com\/(?:watch\?(?:.*&)?v=|(?:embed|v)\/))([^\?&"'>]+)/;
-                // const pattern = /^.*(youtu.be\/|v\/|e\/|u\/\w+\/|embed\/|v=)([^#\&\?]*).*/;
-
                 let results = this.url.match(pattern)[1];
-
                 return results ? results : '';
             }
-        }
+        },
+
+        created() {
+            this.config.autoplay = 1;
+        },
     }
 </script>
 

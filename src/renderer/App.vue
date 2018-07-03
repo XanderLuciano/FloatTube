@@ -10,7 +10,7 @@
 
         created() {
             document.title = 'FloatTube';
-        }
+        },
     }
 </script>
 

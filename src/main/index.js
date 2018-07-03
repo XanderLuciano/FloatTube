@@ -17,8 +17,8 @@ function createWindow () {
         alwaysOnTop: true,
         height: 563,
         width: 1000,
-        minHeight: 360,
-        minWidth: 360,
+        minHeight: 270,
+        minWidth: 480,
         useContentSize: true,
     });
 
