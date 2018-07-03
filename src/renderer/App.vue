@@ -6,7 +6,11 @@
 
 <script>
     export default {
-        name: 'floattube'
+        name: 'floattube',
+
+        created() {
+            document.title = 'FloatTube';
+        }
     }
 </script>
 
