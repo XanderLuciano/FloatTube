@@ -1,32 +1,26 @@
-import { app, BrowserWindow } from 'electron'
+import { app, BrowserWindow, dialog } from 'electron'
 import installExtension, { VUEJS_DEVTOOLS } from 'electron-devtools-installer'
 
-/**
- * Set `__static` path to static files in production
- * https://simulatedgreg.gitbooks.io/electron-vue/content/en/using-static-assets.html
- */
 if (process.env.NODE_ENV !== 'development') {
-  global.__static = require('path').join(__dirname, '/static').replace(/\\/g, '\\\\')
+    import('path').then( (path) => {
+        global.__static = path.join(__dirname, '/static').replace(/\\/g, '\\\\');
+    });
 }
 
-let mainWindow
+let mainWindow;
 const winURL = process.env.NODE_ENV === 'development'
   ? `http://localhost:9080`
   : `file://${__dirname}/index.html`;
 
 function createWindow () {
-    installExtension('cjpalhdlnbpafiamejdnhcphjbkeiagm')
-        .then( (name) => { console.log(`Installed extension: ${name}`) } )
-        .catch( (err) => { console.warn('Unable to install `vue-devtools`: \n', err) } );
-
-  /**
-   * Initial window options
-   */
   mainWindow = new BrowserWindow({
+      title: 'FloatTube',
       alwaysOnTop: true,
       height: 563,
+      width: 1000,
+      minHeight: 360,
+      minWidth: 360,
       useContentSize: true,
-      width: 1000
   });
 
   mainWindow.loadURL(winURL);
@@ -40,7 +34,7 @@ app.on('ready', createWindow);
 
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {
-    app.quit()
+    app.quit();
   }
 });
 
@@ -49,14 +43,6 @@ app.on('activate', () => {
     createWindow();
   }
 });
-
-/**
- * Auto Updater
- *
- * Uncomment the following code below and install `electron-updater` to
- * support auto updating. Code Signing with a valid certificate is required.
- * https://simulatedgreg.gitbooks.io/electron-vue/content/en/using-electron-builder.html#auto-updating
- */
 
 /*
 import { autoUpdater } from 'electron-updater'

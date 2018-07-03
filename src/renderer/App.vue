@@ -5,9 +5,9 @@
 </template>
 
 <script>
-  export default {
-    name: 'floattube'
-  }
+    export default {
+        name: 'floattube'
+    }
 </script>
 
 <style>
