@@ -4,15 +4,15 @@ import Router from 'vue-router'
 Vue.use(Router);
 
 export default new Router({
-  routes: [
-    {
-      path: '/',
-      name: 'player',
-      component: require('@/components/Player').default
-    },
-    {
-      path: '*',
-      redirect: '/'
-    }
-  ]
-})
+    routes: [
+        {
+            path: '/',
+            name: 'player',
+            component: require('@/components/Player').default
+        },
+        {
+            path: '*',
+            redirect: '/'
+        },
+    ]
+});
