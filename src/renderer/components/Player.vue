@@ -22,7 +22,7 @@
 
         data() {
             return {
-                url: 'https://youtu.be/l9E5UFhi_Go',
+                url: 'https://youtube.com/',
                 vid: '',
                 config: {
                     autoplay: 0,
